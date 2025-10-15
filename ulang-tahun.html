@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>🎂 Happy Birthday, Vania! 🎈</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Comic Sans MS", "Marker Felt", cursive, sans-serif;
+            }
+
+            body {
+                background: linear-gradient(
+                    135deg,
+                    #ff9a9e,
+                    #fad0c4,
+                    #a1c4fd,
+                    #c2e9fb
+                );
+                min-height: 100vh;
+                overflow: hidden;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #333;
+                cursor: pointer;
+            }
+
+            /* Overlay ajakan klik */
+            #click-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                color: white;
+                font-size: 1.8rem;
+                text-align: center;
+                padding: 20px;
+                animation: pulseText 2s infinite;
+            }
+
+            @keyframes pulseText {
+                0%,
+                100% {
+                    opacity: 0.8;
+                }
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            #click-overlay .icon {
+                font-size: 4rem;
+                margin-bottom: 20px;
+                animation: bounce 1.5s infinite;
+            }
+
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            .card {
+                background: rgba(255, 255, 255, 0.94);
+                border-radius: 30px;
+                padding: 40px 25px;
+                max-width: 600px;
+                width: 90%;
+                box-shadow: 0 15px 50px rgba(255, 107, 157, 0.5);
+                position: relative;
+                z-index: 10;
+                backdrop-filter: blur(5px);
+                border: 4px solid #ffde00;
+                animation: pulseGlow 4s infinite alternate;
+            }
+
+            @keyframes pulseGlow {
+                0% {
+                    box-shadow: 0 15px 50px rgba(255, 107, 157, 0.5);
+                }
+                100% {
+                    box-shadow: 0 15px 70px rgba(255, 215, 0, 0.8);
+                }
+            }
+
+            h1 {
+                font-size: 2.4rem;
+                color: #ff3e8d;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 6px rgba(255, 107, 157, 0.4);
+                animation: fadeInDown 1.5s ease-out;
+            }
+
+            .cake {
+                font-size: 5rem;
+                margin: 20px 0;
+                animation: bounce 2s infinite;
+            }
+
+            p {
+                font-size: 1.3rem;
+                line-height: 1.6;
+                margin: 15px 0;
+                color: #555;
+                animation: fadeInUp 2s ease-out;
+                animation-fill-mode: both;
+            }
+
+            .balloons {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin: 20px 0;
+                animation: floatIn 2.5s ease-out;
+            }
+
+            .balloon {
+                font-size: 2.3rem;
+                opacity: 0;
+                animation: rise 3s forwards;
+            }
+
+            .balloon:nth-child(1) {
+                animation-delay: 0.2s;
+            }
+            .balloon:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+            .balloon:nth-child(3) {
+                animation-delay: 0.6s;
+            }
+            .balloon:nth-child(4) {
+                animation-delay: 0.8s;
+            }
+
+            @keyframes rise {
+                to {
+                    opacity: 1;
+                    transform: translateY(-20px);
+                }
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes floatIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .surprise-btn {
+                background: linear-gradient(
+                    45deg,
+                    #ff416c,
+                    #ff4b2b,
+                    #ff9a00,
+                    #ffde00
+                );
+                color: white;
+                border: none;
+                padding: 18px 40px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                border-radius: 60px;
+                cursor: pointer;
+                margin-top: 25px;
+                transition: all 0.3s;
+                box-shadow: 0 8px 25px rgba(255, 65, 108, 0.7);
+                position: relative;
+                overflow: hidden;
+                outline: none;
+                z-index: 20;
+            }
+
+            .surprise-btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 12px 30px rgba(255, 65, 108, 0.9);
+            }
+
+            #message {
+                margin-top: 30px;
+                font-size: 1.3rem;
+                color: #ff416c;
+                min-height: 70px;
+                font-weight: bold;
+                padding: 15px;
+                border-radius: 15px;
+                background: rgba(255, 250, 240, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.6s;
+            }
+
+            #message.show {
+                opacity: 1;
+            }
+
+            footer {
+                margin-top: 25px;
+                color: #888;
+                font-size: 1rem;
+            }
+
+            .falling {
+                position: absolute;
+                top: -50px;
+                font-size: 1.8rem;
+                z-index: 2;
+                pointer-events: none;
+                opacity: 0;
+                animation: fall linear forwards;
+            }
+
+            @keyframes fall {
+                to {
+                    transform: translateY(110vh) rotate(360deg);
+                    opacity: 1;
+                }
+            }
+
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 2.2rem;
+                }
+                p {
+                    font-size: 1.15rem;
+                }
+                .cake {
+                    font-size: 4rem;
+                }
+                .surprise-btn {
+                    padding: 14px 30px;
+                    font-size: 1.3rem;
+                }
+                #click-overlay {
+                    font-size: 1.5rem;
+                }
+                #click-overlay .icon {
+                    font-size: 3.2rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Overlay: Minta klik pertama -->
+        <div id="click-overlay">
+            <div class="icon">🎂</div>
+            <div>
+                Klik/Tap di mana saja<br />untuk mulai pesta & dengar lagu!
+            </div>
+        </div>
+
+        <!-- Konten utama -->
+        <div class="card">
+            <h1>✨Happy Birthday, Vania!✨</h1>
+
+            <div class="cake">🎂</div>
+
+            <div class="balloons">
+                <div class="balloon">🎈</div>
+                <div class="balloon">🎉</div>
+                <div class="balloon">🎁</div>
+                <div class="balloon">🎀</div>
+            </div>
+
+            <p>
+                Hai <strong>Vania</strong>! 🥰<br />
+                Hari ini kamu genap berusia <strong>10 tahun</strong>!<br />
+                Semoga kamu selalu sehat, bahagia, dan jadi anak yang pintar
+                serta baik hati!
+            </p>
+
+            <button class="surprise-btn" id="surpriseBtn">
+                Klik untuk Kejutan! 🎁
+            </button>
+
+            <div id="message"></div>
+
+            <footer>Dibuat dengan 💖 oleh Om Randy yang Ganteng</footer>
+        </div>
+
+        <!-- Audio (tersembunyi) -->
+        <audio id="birthdaySong" loop preload="auto">
+            <source
+                src="./audio.mp3"
+                type="audio/mpeg"
+            />
+        </audio>
+
+        <script>
+            const audio = document.getElementById("birthdaySong");
+            const overlay = document.getElementById("click-overlay");
+
+            // Fungsi putar musik
+            function startMusic() {
+                audio
+                    .play()
+                    .then(() => {
+                        // Sukses → sembunyikan overlay
+                        overlay.style.display = "none";
+                        // Mulai animasi confetti
+                        startConfetti();
+                    })
+                    .catch((err) => {
+                        console.warn("Gagal memutar audio:", err);
+                        overlay.innerHTML =
+                            '<div class="icon">⚠️</div><div>Mohon izinkan suara, lalu klik lagi!</div>';
+                    });
+            }
+
+            // Event: klik/tap di mana saja
+            document.body.addEventListener("click", startMusic, { once: true });
+            document.body.addEventListener("touchstart", startMusic, {
+                once: true,
+            });
+
+            // === Confetti Otomatis (setelah musik nyala) ===
+            let confettiActive = false;
+            function startConfetti() {
+                if (confettiActive) return;
+                confettiActive = true;
+                const emojis = [
+                    "🎈",
+                    "🎉",
+                    "🎁",
+                    "🎀",
+                    "💖",
+                    "✨",
+                    "🌟",
+                    "🦄",
+                    "🍭",
+                    "🧁",
+                ];
+                function createFalling() {
+                    if (!confettiActive) return;
+                    const el = document.createElement("div");
+                    el.classList.add("falling");
+                    el.textContent =
+                        emojis[Math.floor(Math.random() * emojis.length)];
+                    el.style.left = Math.random() * 100 + "vw";
+                    el.style.fontSize = 1 + Math.random() * 1.5 + "rem";
+                    el.style.opacity = Math.random() * 0.7 + 0.3;
+                    el.style.animationDuration = 3 + Math.random() * 5 + "s";
+                    document.body.appendChild(el);
+                    setTimeout(() => el.remove(), 8000);
+                }
+                setInterval(createFalling, 400);
+            }
+
+            // === Ledakan & Kejutan ===
+            function createExplosion(x, y) {
+                const particles = 30;
+                const types = ["✨", "🎉", "💖", "🌟", "🎀", "🎁"];
+                for (let i = 0; i < particles; i++) {
+                    const p = document.createElement("div");
+                    p.textContent =
+                        types[Math.floor(Math.random() * types.length)];
+                    p.style.position = "absolute";
+                    p.style.left = x + "px";
+                    p.style.top = y + "px";
+                    p.style.fontSize = 1 + Math.random() * 1.2 + "rem";
+                    p.style.zIndex = "30";
+                    p.style.pointerEvents = "none";
+                    p.style.opacity = "1";
+                    document.body.appendChild(p);
+
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = 3 + Math.random() * 5;
+                    const vx = Math.cos(angle) * speed;
+                    const vy = Math.sin(angle) * speed;
+                    let posX = x;
+                    let posY = y;
+                    let opacity = 1;
+
+                    const animate = () => {
+                        opacity -= 0.02;
+                        posX += vx;
+                        posY += vy - 0.2;
+                        p.style.opacity = opacity;
+                        p.style.transform = `translate(${posX - x}px, ${
+                            posY - y
+                        }px)`;
+                        p.style.left = `${x}px`;
+                        p.style.top = `${y}px`;
+                        if (opacity > 0) requestAnimationFrame(animate);
+                        else p.remove();
+                    };
+                    animate();
+                }
+            }
+
+            const messages = [
+                "Dedek bayi 🎀",
+                "Semoga impianmu tercapai! ✨",
+                "Jangan lupa makan sayur ya... 🥦",
+                "Om bangga punya keponakan secantik dan seceria kamu! 💖",
+                "Teruslah tersenyum, ya! 😄",
+                "Semoga tahun ini penuh petualangan seru! 🦄",
+            ];
+            document
+                .getElementById("surpriseBtn")
+                .addEventListener("click", function (e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = rect.left + rect.width / 2 + window.scrollX;
+                    const y = rect.top + rect.height / 2 + window.scrollY;
+                    createExplosion(x, y);
+                    playPopSound();
+
+                    const msgEl = document.getElementById("message");
+                    msgEl.textContent =
+                        messages[Math.floor(Math.random() * messages.length)];
+                    msgEl.classList.add("show");
+                });
+
+            function playPopSound() {
+                try {
+                    const ctx = new (window.AudioContext ||
+                        window.webkitAudioContext)();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.type = "sine";
+                    osc.frequency.value = 600 + Math.random() * 400;
+                    gain.gain.value = 0.2;
+                    gain.gain.exponentialRampToValueAtTime(
+                        0.001,
+                        ctx.currentTime + 0.3
+                    );
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                } catch (e) {}
+            }
+        </script>
+    </body>
+</html>
